@@ -1,0 +1,188 @@
+/* Estilos generales */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f8f1;
+  color: #222;
+}
+
+/* Encabezado */
+header {
+  background-color: #1f7a55;
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+/* Menú de navegación */
+nav {
+  background-color: #12302a;
+  text-align: center;
+  padding: 12px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 12px;
+}
+
+nav a:hover {
+  color: #f2a62b;
+}
+
+/* Contenido principal */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+section h2 {
+  border-bottom: 3px solid #f2a62b;
+  padding-bottom: 6px;
+  margin-top: 40px;
+}
+
+/* Cuadrícula de platillos */
+.dishes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.dish {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.dish img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.dish h3 {
+  margin: 10px 0 5px 0;
+}
+
+.dish p {
+  margin: 5px 0;
+}
+
+.price {
+  font-weight: bold;
+  color: #1f7a55;
+  font-size: 18px;
+}
+
+.macros {
+  font-size: 14px;
+  color: #555;
+}
+
+/* Botón que abre la gráfica de cada platillo */
+.chart summary {
+  cursor: pointer;
+  background-color: #1f7a55;
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-top: 10px;
+  list-style: none;
+}
+
+.chart summary::-webkit-details-marker {
+  display: none;
+}
+
+.chart summary:hover {
+  background-color: #12302a;
+}
+
+.chart-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 15px;
+}
+
+/* Gráfica circular (dona) */
+.ring {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  /* proteína, carbos y grasas: los porcentajes vienen del style de cada platillo */
+  background: conic-gradient(
+    #12302a 0 calc(var(--p) * 1%),
+    #f2a62b 0 calc((var(--p) + var(--c)) * 1%),
+    #d6502f 0
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Círculo blanco del centro */
+.ring::before {
+  content: "";
+  position: absolute;
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.ring span {
+  position: relative;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.ring small {
+  display: block;
+  font-size: 11px;
+  font-weight: normal;
+  color: #555;
+}
+
+.legend {
+  list-style: none;
+  padding: 0;
+  margin: 12px 0 0 0;
+  font-size: 14px;
+}
+
+.legend li {
+  margin: 4px 0;
+}
+
+.dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.protein { background-color: #12302a; }
+.carbs { background-color: #f2a62b; }
+.fat { background-color: #d6502f; }
+
+/* Pie de página */
+footer {
+  background-color: #12302a;
+  color: white;
+  text-align: center;
+}
